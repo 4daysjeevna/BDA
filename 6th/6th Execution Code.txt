@@ -1,0 +1,32 @@
+Eclipse -> File -> New -> Java project -> Name = WordCount -> Finish 
+
+File -> New -> Class -> Name = WCMapper  (Repeat for WCReducer & WCDriver)
+
+Type Code 
+
+Right click on WordCount -> Build path -> Configuer build path 
+
+Libraries -> Add external jar
+
+Home -> hadoop -> Training -> CDH4 -> 2.0.0.0
+
+Share -> hadoop -> mapreduce -> (client-core-2.0.0-cdh4.0.0.jar)
+
+Share -> Hadoop -> common -> (hadoop-common- 2.0.0-cdh4.0.0.jar)
+
+
+
+Right click on WordCount -> Export -> jar file -> next -> (/home/hadoop/WordCount.jar) -> next -> finish
+
+
+---------------TERMINAL-----------------
+
+startCDH.sh
+
+jps *(to see what all services are up)
+
+hadoop fs -put WCfile.txt WCfile.txt
+
+hadoop jar WC.jar(file name) WCDriver WCfile.txt WCOutput
+
+hadoop fs -cat WCOutput/part-00000 

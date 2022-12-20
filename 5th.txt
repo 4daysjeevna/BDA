@@ -1,0 +1,31 @@
+------------------------INSERTING DATA INTO HDFS----------------------------
+
+startCDH.sh
+
+vi xyz.txt
+
+$HADOOP_HOME/bin/hadoop fs -mkdir /user/input     			*(To create an input directory)
+
+$HADOOP_HOME/bin/hadoop fs -put /home/hadoop/xyz.txt /user/input		*(To transfer file from local to hadoop)
+
+$HADOOP_HOME/bin/hadoop fs -ls /user/input
+
+
+------------------------RETRIEVING DATA FROM HDFS----------------------------
+
+ls
+
+rm xyz.txt			*(Removing local file)
+
+ls
+
+$HADOOP_HOME/bin/hadoop fs -get /user/input/xyz.txt /home/hadoop
+
+ls
+
+cat xyz.txt
+
+
+------------------------DELETING FILES FROM HDFS----------------------------
+
+$HADOOP_HOME/bin/hadoop fs -rm -r /user/input
